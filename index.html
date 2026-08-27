@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Feature Importance · 排名</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox=%220 0 1024 1024%22 xmlns=%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Crect width=%221024%22 height=%221024%22 rx=%22230%22 fill=%22%23FF4D00%22/%3E%0A%3Ccircle cx=%22430%22 cy=%22300%22 r=%22150%22 fill=%22%23fff%22/%3E%3Ccircle cx=%22430%22 cy=%22300%22 r=%2276%22 fill=%22%23FF4D00%22/%3E%0A%3Ccircle cx=%22700%22 cy=%22278%22 r=%22118%22 fill=%22%23fff%22/%3E%3Ccircle cx=%22700%22 cy=%22278%22 r=%2260%22 fill=%22%23FF4D00%22/%3E%0A%3Cpolygon points=%22250%2C520 450%2C612 450%2C800 250%2C892 205%2C850 205%2C562%22 fill=%22%23fff%22/%3E%0A%3Crect x=%22420%22 y=%22500%22 width=%22380%22 height=%22400%22 rx=%22105%22 fill=%22%23fff%22/%3E%0A%3Crect x=%22535%22 y=%22600%22 width=%22210%22 height=%22200%22 rx=%2245%22 fill=%22%23FF4D00%22/%3E%0A%3C/svg%3E">
 <style>
  :root{
    --bg:#f7f6f0; --card:#ffffff; --line:#e8eae0;
@@ -15,13 +15,16 @@
  *{box-sizing:border-box}
  body{margin:0;background:var(--bg);color:var(--txt);
    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Roboto,Arial,sans-serif;}
+ body::before{content:'';display:block;height:4px;
+   background:linear-gradient(90deg,#2b4d3b 0%,#39604a 55%,#b06a34 100%)}
  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
- header{padding:46px 0 6px;text-align:center}
- .badge{display:inline-block;background:linear-gradient(135deg,#4a8767,var(--green-d));color:#f3f6f1;
-   font-size:11px;letter-spacing:3px;padding:5px 16px;border-radius:99px;margin-bottom:14px}
- h1{margin:0;font-family:Georgia,"Times New Roman","Songti SC",serif;
-    font-size:31px;font-weight:600;letter-spacing:.3px;color:#22352a}
- header p{margin:10px 0 0;color:var(--sub);font-size:13.5px}
+ header{padding:40px 0 20px;text-align:center;border-bottom:1px solid #dcd8ca;margin-bottom:6px}
+ .logo svg{width:46px;height:46px;display:inline-block;border-radius:10px}
+ h1{margin:14px 0 0;font-family:Georgia,"Times New Roman","Songti SC",serif;
+    font-size:34px;font-weight:600;letter-spacing:.4px;color:#1f332a}
+ .sub{margin:9px 0 0;font-family:Georgia,"Songti SC",serif;font-style:italic;
+   font-size:13.5px;color:#6f7d69;letter-spacing:.3px}
+ header p.meta{margin:12px 0 0;color:var(--sub);font-size:13px}
  header code{background:#edefe6;border-radius:6px;padding:1px 7px;font-size:12px;color:#5c6b58}
  .cards{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;padding:24px 0 4px}
  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
@@ -84,9 +87,17 @@
 <body>
 <div class="wrap">
 <header>
- <div class="badge">STEP 0</div>
+ <div class="logo"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+<rect width="1024" height="1024" rx="230" fill="#FF4D00"/>
+<circle cx="430" cy="300" r="150" fill="#fff"/><circle cx="430" cy="300" r="76" fill="#FF4D00"/>
+<circle cx="700" cy="278" r="118" fill="#fff"/><circle cx="700" cy="278" r="60" fill="#FF4D00"/>
+<polygon points="250,520 450,612 450,800 250,892 205,850 205,562" fill="#fff"/>
+<rect x="420" y="500" width="380" height="400" rx="105" fill="#fff"/>
+<rect x="535" y="600" width="210" height="200" rx="45" fill="#FF4D00"/>
+</svg></div>
  <h1>Feature Importance</h1>
- <p>以 <code>.Sequence</code> 结尾为序列特征，其余为非序列特征（含 用户画像 / 物料广告侧 / 交叉特征 子榜单）· AvgImportance · 2026-08-27 日志</p>
+ <p class="sub">A Ranking Report of Sequential &amp; Non-sequential Features · AvgImportance</p>
+ <p class="meta">以 <code>.Sequence</code> 结尾为序列特征，其余为非序列特征（含 用户画像 / 物料广告侧 / 交叉特征 子榜单）· 2026-08-27 日志</p>
 </header>
 
 <div class="cards">
