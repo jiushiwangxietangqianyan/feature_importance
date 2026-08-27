@@ -21,19 +21,21 @@
    border-radius:20px;box-shadow:0 18px 50px rgba(13,28,71,.22)}
  .hero .art{position:absolute;inset:0;width:100%;height:100%;display:block}
  /* hero animations (CSS-driven, works in all modern browsers) */
- .wire{stroke-dasharray:7 13;animation:flowdash linear infinite}
- .w1{animation-duration:3.2s}.w2{animation-duration:2.6s}.w3{animation-duration:4s}
- @keyframes flowdash{to{stroke-dashoffset:-200}}
+ .wire{stroke:#fff;stroke-width:2.4;stroke-linecap:round;
+   stroke-dasharray:6 160;filter:drop-shadow(0 0 6px rgba(255,255,255,.9));
+   animation:comet linear infinite}
+ .w1{animation-duration:4s}.w2{animation-duration:5s;animation-delay:-2.5s}
+ @keyframes comet{to{stroke-dashoffset:-332}}
  .node{animation:drift ease-in-out infinite}
  @keyframes drift{
    0%,100%{transform:translate(0,0);opacity:var(--o,.6)}
-   50%{transform:translate(4px,-7px);opacity:.95}}
- .ring{transform-box:fill-box;transform-origin:center;stroke-opacity:0;
+   50%{transform:translate(5px,-8px);opacity:1}}
+ .ring{transform-box:fill-box;transform-origin:center;stroke-opacity:0;stroke-width:1.6;
    animation:ripple ease-out infinite}
  @keyframes ripple{
-   0%{transform:scale(.5);stroke-opacity:.55}
-   75%{stroke-opacity:.06}
-   100%{transform:scale(2.1);stroke-opacity:0}}
+   0%{transform:scale(.4);stroke-opacity:.7}
+   70%{stroke-opacity:.08}
+   100%{transform:scale(2.3);stroke-opacity:0}}
  .glow.gslow{animation:glowpulse 8s ease-in-out infinite}
  .glow.gfast{animation:glowpulse 11s ease-in-out infinite;animation-delay:-4s}
  @keyframes glowpulse{0%,100%{opacity:.55}50%{opacity:1}}
@@ -83,7 +85,9 @@
  /* ---------- table ---------- */
  .tblcard{background:#fff;border:1px solid var(--line);border-radius:16px;
    box-shadow:0 8px 30px rgba(20,35,80,.07);overflow-x:auto}
- table{width:100%;border-collapse:collapse;min-width:760px}
+ table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:860px}
+ col.c-rank{width:56px} col.c-name{width:auto} col.c-type{width:104px} col.c-side{width:76px}
+ col.c-imp{width:150px} col.c-share{width:96px} col.c-bar{width:210px} col.c-cum{width:88px}
  th,td{padding:11px 16px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
  td.name{white-space:normal;word-break:break-word;min-width:240px;padding-left:22px;
    font-size:13.5px;line-height:1.55;color:#2a3247}
@@ -135,17 +139,6 @@
  </radialGradient>
 </defs>
 <rect width="1440" height="320" fill="url(#hg)"/>
-<rect class="glow gslow" width="1440" height="320" fill="url(#glow1)"/>
-<rect class="glow gfast" width="1440" height="320" fill="url(#glow2)"/>
-<g fill="none" stroke="#9db8ff" stroke-opacity=".30" stroke-width="1.2" class="wire w1">
- <path d="M60,270 L180,150 L330,220 L470,90 L640,180 L820,70 L980,160 L1150,60 L1330,140 L1430,100"/>
-</g>
-<g fill="none" stroke="#9db8ff" stroke-opacity=".22" stroke-width="1.1" class="wire w2">
- <path d="M120,80 L300,40 L520,130 L760,40 L1010,110 L1240,30 L1420,60"/>
-</g>
-<g fill="none" stroke="#b9c8ff" stroke-opacity=".25" stroke-width="1.2" class="wire w3">
- <path d="M0,160 C240,60 480,260 720,150 C960,40 1200,250 1440,130"/>
-</g>
 <g fill="#cfe0ff">
  <circle class="node" cx="180" cy="150" r="4"   style="--o:.55;animation-duration:5s"/>
  <circle class="node" cx="470" cy="90"  r="5"   style="--o:.7;animation-duration:7s"/>
@@ -158,11 +151,13 @@
  <circle class="node" cx="1330" cy="140" r="4"  style="--o:.5;animation-duration:7.5s;animation-delay:-5s"/>
  <circle class="node" cx="520" cy="130" r="3.5" style="--o:.5;animation-duration:5s;animation-delay:-3.5s"/>
 </g>
+<g class="wire w1"><path d="M180,150 L470,90 L820,70 L1150,60 L1330,140 L720,150 Z" fill="none"/></g>
+<g class="wire w2"><path d="M300,40 L520,130 L760,40 L1240,30 L300,40" fill="none"/></g>
 <g fill="none" stroke="#dfe8ff">
- <circle class="ring" cx="1150" cy="60" r="12" style="animation-duration:4.5s"/>
- <circle class="ring" cx="1150" cy="60" r="12" style="animation-duration:4.5s;animation-delay:2.2s"/>
- <circle class="ring" cx="470"  cy="90" r="10" style="animation-duration:5.5s;animation-delay:.8s"/>
- <circle class="ring" cx="470"  cy="90" r="10" style="animation-duration:5.5s;animation-delay:3.5s"/>
+ <circle class="ring" cx="1150" cy="60" r="12" style="animation-duration:3.6s"/>
+ <circle class="ring" cx="1150" cy="60" r="12" style="animation-duration:3.6s;animation-delay:1.8s"/>
+ <circle class="ring" cx="470"  cy="90" r="10" style="animation-duration:4.4s;animation-delay:.6s"/>
+ <circle class="ring" cx="470"  cy="90" r="10" style="animation-duration:4.4s;animation-delay:2.8s"/>
 </g>
 </svg>
  <div class="inner">
@@ -179,7 +174,7 @@
   </div>
   <h1>Feature Importance</h1>
   <p class="sub">A Ranking Report of Sequential &amp; Non-sequential Features · AvgImportance</p>
-  <div class="rule"><i></i><b>KDD Style Ranking · Vol.1</b></div>
+  <div class="rule"><i></i><b>Feature Intelligence Report · Vol.1</b></div>
   <p class="meta">以 <code>.Sequence</code> 结尾为序列特征，其余为非序列特征（含 用户画像 / 物料广告侧 / 交叉特征 子榜单）· 2026-08-27 日志</p>
  </div>
 </div>
@@ -214,10 +209,11 @@
 
 <main><div class="tblcard"><table id="tbl">
  <thead><tr>
-  <th data-k="rank">#</th><th data-k="n">Feature</th><th data-k="t">类型</th><th>侧别</th>
+  <th data-k="rank" class="num">#</th><th data-k="n">Feature</th><th data-k="t">类型</th><th>侧别</th>
   <th data-k="v" class="num">AvgImportance</th><th class="num">占比 %</th>
   <th>分布</th><th data-k="cum" class="num">累计 %</th>
  </tr></thead>
+ <colgroup><col class="c-rank"><col class="c-name"><col class="c-type"><col class="c-side"><col class="c-imp"><col class="c-share"><col class="c-bar"><col class="c-cum"></colgroup>
  <tbody></tbody>
 </table></div></main>
 
@@ -254,7 +250,7 @@ function render(){
   const tb=document.querySelector('#tbl tbody');
   tb.innerHTML=rows().map(r=>`
    <tr class="${r.v===0?'zero':''}">
-   <td><span class="rb ${r.rank<=3?'m'+r.rank:''}">${r.rank}</span></td>
+   <td class="num"><span class="rb ${r.rank<=3?'m'+r.rank:''}">${r.rank}</span></td>
    <td class="name">${r.n}</td>
    <td><span class="tag ${r.t}">${r.t}</span></td>
    <td>${r.c?`<span class="pill ${r.c}">${CL[r.c]}</span>`:''}</td>
