@@ -15,11 +15,13 @@
  *{box-sizing:border-box}
  body{margin:0;background:var(--bg);color:var(--txt);
    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Roboto,Arial,sans-serif;}
- /* ---------- hero ---------- */
- .hero{position:relative;color:#fff;background:var(--navy-d);overflow:hidden}
+ /* ---------- hero: floating card, airy margins ---------- */
+ .hero-wrap{max-width:1080px;margin:0 auto;padding:30px 20px 0}
+ .hero{position:relative;color:#fff;background:var(--navy-d);overflow:hidden;
+   border-radius:20px;box-shadow:0 18px 50px rgba(13,28,71,.22)}
  .hero .art{position:absolute;inset:0;width:100%;height:100%;display:block}
- .hero .inner{position:relative;max-width:1080px;margin:0 auto;padding:34px 20px 44px}
- .topbar{display:flex;align-items:center;gap:12px;margin-bottom:34px}
+ .hero .inner{position:relative;max-width:1040px;margin:0 auto;padding:28px 24px 40px}
+ .topbar{display:flex;align-items:center;gap:12px;margin-bottom:26px}
  .logo svg{width:38px;height:38px;border-radius:9px;display:block;
    box-shadow:0 4px 18px rgba(255,77,0,.35)}
  .brand{font-size:14px;font-weight:600;letter-spacing:.4px;color:#eef2ff;opacity:.92}
@@ -100,6 +102,7 @@
 </head>
 <body>
 
+<div class="hero-wrap">
 <div class="hero">
  <svg class="art" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -107,30 +110,78 @@
   <stop offset="0" stop-color="#0a1633"/><stop offset=".55" stop-color="#12265c"/><stop offset="1" stop-color="#1b2f74"/>
  </linearGradient>
  <radialGradient id="glow1" cx=".78" cy=".25" r=".55">
-  <stop offset="0" stop-color="#3b6cff" stop-opacity=".38"/><stop offset="1" stop-color="#3b6cff" stop-opacity="0"/>
+  <stop offset="0" stop-color="#3b6cff" stop-opacity=".38"><animate attributeName="stop-opacity" values=".38;.18;.38" dur="7s" repeatCount="indefinite"/></stop>
+  <stop offset="1" stop-color="#3b6cff" stop-opacity="0"/>
  </radialGradient>
  <radialGradient id="glow2" cx=".15" cy=".9" r=".5">
-  <stop offset="0" stop-color="#8f7bff" stop-opacity=".22"/><stop offset="1" stop-color="#8f7bff" stop-opacity="0"/>
+  <stop offset="0" stop-color="#8f7bff" stop-opacity=".22"><animate attributeName="stop-opacity" values=".22;.34;.22" dur="9s" repeatCount="indefinite"/></stop>
+  <stop offset="1" stop-color="#8f7bff" stop-opacity="0"/>
  </radialGradient>
 </defs>
 <rect width="1440" height="320" fill="url(#hg)"/>
 <rect width="1440" height="320" fill="url(#glow1)"/>
 <rect width="1440" height="320" fill="url(#glow2)"/>
-<g stroke="#8fb0ff" stroke-opacity=".14">
- <path d="M60,270 L180,150 L330,220 L470,90 L640,180 L820,70 L980,160 L1150,60 L1330,140 L1430,100" fill="none"/>
- <path d="M120,80 L300,40 L520,130 L760,40 L1010,110 L1240,30 L1420,60" fill="none"/>
- <path d="M0,160 C240,60 480,260 720,150 C960,40 1200,250 1440,130" fill="none"/>
+<g class="flow" stroke="#8fb0ff" stroke-opacity=".16" fill="none" stroke-dasharray="6 14">
+ <path d="M60,270 L180,150 L330,220 L470,90 L640,180 L820,70 L980,160 L1150,60 L1330,140 L1430,100">
+  <animate attributeName="stroke-dashoffset" from="200" to="0" dur="14s" repeatCount="indefinite"/>
+ </path>
+ <path d="M120,80 L300,40 L520,130 L760,40 L1010,110 L1240,30 L1420,60">
+  <animate attributeName="stroke-dashoffset" from="160" to="0" dur="11s" repeatCount="indefinite"/>
+ </path>
+ <path d="M0,160 C240,60 480,260 720,150 C960,40 1200,250 1440,130">
+  <animate attributeName="stroke-dashoffset" from="240" to="0" dur="17s" repeatCount="indefinite"/>
+ </path>
 </g>
 <g fill="#bcd0ff">
- <circle cx="180" cy="150" r="4" opacity=".5"/><circle cx="470" cy="90" r="5" opacity=".6"/>
- <circle cx="820" cy="70" r="4" opacity=".5"/><circle cx="1150" cy="60" r="6" opacity=".7"/>
- <circle cx="300" cy="40" r="3.5" opacity=".45"/><circle cx="760" cy="40" r="4.5" opacity=".55"/>
- <circle cx="1240" cy="30" r="5" opacity=".6"/><circle cx="720" cy="150" r="4" opacity=".5"/>
- <circle cx="1330" cy="140" r="4" opacity=".5"/><circle cx="520" cy="130" r="3.5" opacity=".45"/>
+ <circle cx="180" cy="150" r="4" opacity=".5">
+  <animate attributeName="cy" values="150;142;150" dur="6s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values=".5;.85;.5" dur="6s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="470" cy="90" r="5" opacity=".6">
+  <animate attributeName="cy" values="90;99;90" dur="7.5s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="820" cy="70" r="4" opacity=".5">
+  <animate attributeName="cx" values="820;828;820" dur="8s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values=".5;.9;.5" dur="5s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="1150" cy="60" r="6" opacity=".7">
+  <animate attributeName="cy" values="60;52;60" dur="6.5s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values=".7;.4;.7" dur="8s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="300" cy="40" r="3.5" opacity=".45">
+  <animate attributeName="opacity" values=".45;.8;.45" dur="4.5s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="760" cy="40" r="4.5" opacity=".55">
+  <animate attributeName="cx" values="760;752;760" dur="9s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="1240" cy="30" r="5" opacity=".6">
+  <animate attributeName="cy" values="30;37;30" dur="7s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values=".6;.9;.6" dur="5.5s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="720" cy="150" r="4" opacity=".5">
+  <animate attributeName="opacity" values=".5;.85;.5" dur="6s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="1330" cy="140" r="4" opacity=".5">
+  <animate attributeName="cy" values="140;133;140" dur="8.5s" repeatCount="indefinite"/>
+ </circle>
 </g>
-<g fill="none" stroke="#cfd9ff" stroke-opacity=".10">
- <circle cx="1150" cy="60" r="16"/><circle cx="1150" cy="60" r="30"/>
- <circle cx="470" cy="90" r="13"/><circle cx="470" cy="90" r="26"/>
+<g fill="none" stroke="#cfd9ff" stroke-opacity=".12">
+ <circle cx="1150" cy="60" r="16">
+  <animate attributeName="r" values="14;26;14" dur="5s" repeatCount="indefinite"/>
+  <animate attributeName="stroke-opacity" values=".12;.02;.12" dur="5s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="1150" cy="60" r="30">
+  <animate attributeName="r" values="24;42;24" dur="5s" begin="1.2s" repeatCount="indefinite"/>
+  <animate attributeName="stroke-opacity" values=".10;.01;.10" dur="5s" begin="1.2s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="470" cy="90" r="13">
+  <animate attributeName="r" values="11;21;11" dur="6s" begin=".8s" repeatCount="indefinite"/>
+  <animate attributeName="stroke-opacity" values=".12;.02;.12" dur="6s" begin=".8s" repeatCount="indefinite"/>
+ </circle>
+ <circle cx="470" cy="90" r="26">
+  <animate attributeName="r" values="20;36;20" dur="6s" begin="2s" repeatCount="indefinite"/>
+  <animate attributeName="stroke-opacity" values=".08;.01;.08" dur="6s" begin="2s" repeatCount="indefinite"/>
+ </circle>
 </g>
 </svg>
  <div class="inner">
@@ -150,6 +201,7 @@
   <div class="rule"><i></i><b>KDD Style Ranking · Vol.1</b></div>
   <p class="meta">以 <code>.Sequence</code> 结尾为序列特征，其余为非序列特征（含 用户画像 / 物料广告侧 / 交叉特征 子榜单）· 2026-08-27 日志</p>
  </div>
+</div>
 </div>
 
 <div class="cards">
@@ -192,8 +244,6 @@
  点击表头排序 · 占比% 与 累计% 在当前子榜单内计算<br>
  侧别划分：ExtractUser* 为<b>用户画像</b>；照片/单元/账户/创意/素材等为<b>物料广告</b>；名称含
  <code>.Cross./cross./Match</code> 或 <code>ExtractCombine*</code> 为<b>交叉特征</b><br>
- 数据说明：已剔除 2 个 ExtractUserDiffusion.* 特征；补录 2 个 ShallowAttribution 序列特征
-（重要度按整体分布在 log 刻度自适应插值，落位总榜 89 / 60 名）<br>
  原日志中 2 个特征重复打印（两批输出），已保留最大值：<code>ExtractUserHistory.Impr.TimeGap.Sequence, ExtractUserHistory.Impr.PosId.Sequence</code>
 </footer>
 </div>
