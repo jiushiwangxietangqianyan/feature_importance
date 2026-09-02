@@ -15,7 +15,7 @@
  *{box-sizing:border-box}
  body{margin:0;background:var(--bg);color:var(--txt);
    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",Roboto,Arial,sans-serif;}
- .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+ .wrap{max-width:1440px;margin:0 auto;padding:0 20px}
  header{padding:46px 0 6px;text-align:center}
  .badge{display:inline-block;background:linear-gradient(135deg,#4a8767,var(--green-d));color:#f3f6f1;
    font-size:11px;letter-spacing:3px;padding:5px 16px;border-radius:99px;margin-bottom:14px}
@@ -71,7 +71,7 @@
  .pill.user{background:#e8f1e6;color:#3c6e46}
  .pill.item{background:#f6ecdc;color:#a0632c}
  .pill.cross{background:#e5ebf2;color:#46648c}
- .barwrap{height:11px;min-width:170px;background:#f1f2ea;border-radius:99px;overflow:hidden}
+ .barwrap{height:11px;min-width:100px;background:#f1f2ea;border-radius:99px;overflow:hidden}
  .bar{height:100%;border-radius:99px}
  .seqbar{background:linear-gradient(90deg,#6f9d78,#35714e)}
  .nonbar{background:linear-gradient(90deg,#dcbe7a,#a9682f)}
@@ -83,12 +83,17 @@
  .rb.m3{background:#ecd3bb;color:#8a5424}
  .zero td.name{opacity:.45}
  .foot{padding:16px 0 42px;text-align:center;color:var(--sub);font-size:12px;line-height:1.9}
- td.name{min-width:210px}td.exp{max-width:420px;min-width:240px;color:#4a5a4c;font-size:12px;line-height:1.55}
- .chip{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;white-space:nowrap}
- .chip.new{background:#e8f3ec;color:#2f6b45;border:1px solid #bcd8c6}
- .chip.old{background:#f1f0ea;color:#8b937f;border:1px solid #dcdccb}
- .up{color:#b0532c;font-weight:600;white-space:nowrap}.dn{color:#3c6e46;font-weight:600;white-space:nowrap}
- @media (max-width:720px){ .toolbar{flex-direction:column} .search input{width:80vw} }
+ .wrap{max-width:1440px;margin:0 auto;padding:0 24px}
+td.name{min-width:200px;max-width:280px;font-size:13px}
+td.exp{color:#4a5a4c;font-size:12px;line-height:1.5;white-space:normal;word-break:break-word;max-width:320px}
+td,th{padding:8px 10px}
+.barwrap{min-width:100px}
+.chip{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;white-space:nowrap}
+.chip.new{background:#e8f3ec;color:#2f6b45;border:1px solid #bcd8c6}
+.chip.old{background:#f1f0ea;color:#8b937f;border:1px solid #dcdccb}
+.up{color:#b0532c;font-weight:600;white-space:nowrap}.dn{color:#3c6e46;font-weight:600;white-space:nowrap}
+.tblcard{overflow-x:auto}
+@media (max-width:720px){ .toolbar{flex-direction:column} .search input{width:80vw} }
 </style>
 </head>
 <body>
