@@ -151,7 +151,7 @@ td,th{padding:8px 10px}
 const D = JSON.parse(document.getElementById('data').textContent);
 let view='all', sub='non', q='', sortK={v:'rank',dir:'asc'};
 const fmt = v => v===0 ? '0' : v.toExponential(4);
-function cur(){ if(view!=='all') return D[view]; return {non:D.non,nu:D.nu,ni:D.ni,nc:D.nc}[sub] || D.non; }
+function cur(){ if(view==='seq'||view==='non') return D[view]; return {non:D.non,nu:D.nu,ni:D.ni,nc:D.nc}[sub] || D.all; }
 function rows(){
   let r=cur();
   if(q) r=r.filter(x=>x.n.toLowerCase().includes(q)||(x.x||'').toLowerCase().includes(q));
